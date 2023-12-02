@@ -103,6 +103,8 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Star</th>
+            <th>Total Comments</th>
             <th>Release Date</th>
             <th>Category</th>
             <th>Artist</th>
@@ -117,8 +119,10 @@
                 <td><c:out value="${product.productId}" /></td>
                 <td><img class="card-img rounded-0 img-fluid image-product" src="assets/img/${product.image}"></td>
                 <td><c:out value="${product.name}" /></td>
-                <td><c:out value="${product.describle}" /></td>
+                <td><c:out value="${product.describe}" /></td>
                 <td><c:out value="${product.price} VNĐ" /></td>
+                <td><c:out value="${product.star}" /></td>
+                <td><c:out value="${product.comment}" /></td>
                 <td><c:out value="${product.releaseDate}" /></td>
                 <td><c:out value="${product.category.name}" /></td>
                 <td><c:out value="${product.artist.name}" /></td>

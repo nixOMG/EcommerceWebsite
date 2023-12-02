@@ -194,9 +194,11 @@ public class ProductController extends HttpServlet {
 	        int genreId = Integer.parseInt(request.getParameter("genreId"));
 	        int artistId = Integer.parseInt(request.getParameter("artistId"));
 	        Date releaseDate = Date.valueOf(request.getParameter("releaseDate"));
-	        String describle = request.getParameter("describle");
+	        String describe = request.getParameter("describe");
 	        int weight = Integer.parseInt(request.getParameter("weight"));
 	        int price = Integer.parseInt(request.getParameter("price"));
+	        int star = Integer.parseInt(request.getParameter("star"));
+	        int comment  = Integer.parseInt(request.getParameter("comment"));
 
 	        // Lấy ảnh mới từ request
             Part newImagePart = request.getPart("newImage");
@@ -221,12 +223,14 @@ public class ProductController extends HttpServlet {
             
             productToUpdate.setName(name);
             productToUpdate.setWeight(weight);
-            productToUpdate.setDescrible(describle);
+            productToUpdate.setDescribe(describe);
             productToUpdate.setCategory(category);
             productToUpdate.setArtist(artist);
             productToUpdate.setGenre(genre);
             productToUpdate.setPrice(price);
             productToUpdate.setReleaseDate(releaseDate);
+            productToUpdate.setStar(star);
+            productToUpdate.setComment(comment);
             
             // Kiểm tra nếu có ảnh mới được chọn
             if (newImageInputStream.available() > 0) {
@@ -293,10 +297,12 @@ public class ProductController extends HttpServlet {
 	        int genreId = Integer.parseInt(request.getParameter("genreId"));
 	        int artistId = Integer.parseInt(request.getParameter("artistId"));
 	        Date releaseDate = Date.valueOf(request.getParameter("releaseDate"));
-	        String describle = request.getParameter("describle");
+	        String describe = request.getParameter("describe");
 	        int weight = Integer.parseInt(request.getParameter("weight"));
 	        int price = Integer.parseInt(request.getParameter("price"));
-
+	        int star = Integer.parseInt(request.getParameter("star"));
+	        int comment  = Integer.parseInt(request.getParameter("comment"));
+	        
 	        // Tạo đối tượng Product và set các trường thông tin
 	        Product product = new Product();
 	        product.setName(name);
@@ -317,9 +323,11 @@ public class ProductController extends HttpServlet {
 	            
 	            // Set các trường thông tin khác
 	            product.setReleaseDate(releaseDate);
-	            product.setDescrible(describle);
+	            product.setDescribe(describe);
 	            product.setWeight(weight);
 	            product.setPrice(price);
+	            product.setStar(star);
+	            product.setComment(comment);
 
 	            // Xử lý tải ảnh lên
 	            Part imagePart = request.getPart("image");

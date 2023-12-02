@@ -198,7 +198,7 @@ https://templatemo.com/tm-559-zay-shop
 									                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
 									                    <i class="fas fa-minus"></i>
 									                </button>
-									                <input id="form1" min="0" style="width: 80px;" name="quantity" value="${entry.value.quanty}" type="number"
+									                <input id="form1" min="0" style="width: 80px;" name="quantity" value="${entry.value.quantity}" type="number"
 									                    class="form-control form-control-sm" />
 									                <button class="btn btn-link px-2" type="submit"
 									                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">

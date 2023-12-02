@@ -39,11 +39,11 @@ public class CustomerController extends HttpServlet {
 		if(action != null && action.equals("get-page-edit-customer")) {
 		}
 		else {
-			handleGePageManageCustomer(request, response);
+			handleGetPageManageCustomer(request, response);
 		}
 	}
 
-	private void handleGePageManageCustomer(HttpServletRequest request, HttpServletResponse response) {
+	private void handleGetPageManageCustomer(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			EntityManager entityManager = DBUtil.getEntityManager();
 			// Gọi đến UserEM để lấy danh sách người dùng với roleId=2

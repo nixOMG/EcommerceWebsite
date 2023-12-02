@@ -3,23 +3,23 @@ package dto;
 import entity.Product;
 
 public class Cart {
-	private int quanty;
+	private int quantity;
 	private int totalPrice;
 	private Product product;
 	public Cart() {
 		super();
 	}
-	public Cart(int quanty, int totalPrice, Product product) {
+	public Cart(int quantity, int totalPrice, Product product) {
 		super();
-		this.quanty = quanty;
+		this.quantity = quantity;
 		this.totalPrice = totalPrice;
 		this.product = product;
 	}
-	public int getQuanty() {
-		return quanty;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setQuanty(int quanty) {
-		this.quanty = quanty;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	public int getTotalPrice() {
 		return totalPrice;

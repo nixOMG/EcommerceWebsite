@@ -155,15 +155,15 @@
 				<div class="col-md-8 text-white">
 					<h1>About Us</h1>
 					<p>
-						Chúng tôi là một cửa hàng chuyên về các sản phẩm văn hóa giải trí của 3 nước Hàn, Nhật và Trung.
+						Chúng tôi là một cửa hàng chuyên về các sản phẩm văn hóa giải trí của các nước trên thế giới.
 						Luôn theo dõi và cập nhật những sản phẩm mới nhất, chất lượng nhất theo xu hướng của giới trẻ.
-						Với những dịch vụ phục vụ nhu cầu mua sắm những sản phẩm giải trí như truyện tranh, CD và
-						lightstick,
-						chúng tôi tự tin đưa đến các bạn những sản phẩm chất lượng theo những gì chúng tôi đăng bán.
+						Với những dịch vụ phục vụ nhu cầu mua sắm những sản phẩm giải trí như truyện tranh, albums, CD
+						và lightstick...
+						Chúng tôi tự tin đưa đến các bạn những sản phẩm chất lượng theo những gì chúng tôi đăng bán.
 					</p>
 				</div>
 				<div class="col-md-4">
-					<img src="" alt="About Hero">
+					<img src="./assets/img/about-hero.svg" alt="About Hero">
 				</div>
 			</div>
 		</div>
@@ -237,7 +237,7 @@
 		<div class="container my-4">
 			<div class="row text-center py-3">
 				<div class="col-lg-6 m-auto">
-					<h1 class="h1">Our Brands</h1>
+					<h1 class="h1">Our Favorite Artist</h1>
 					<p>
 						Các Brands được ưa chuộng.
 					</p>
@@ -263,21 +263,22 @@
 									<div class="carousel-item active">
 										<div class="row">
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(1)"><img class="img-fluid brand-img"
 														src="assets/img/brand_01.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(7)"><img class="img-fluid brand-img"
 														src="assets/img/brand_02.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(3)"><img class="img-fluid brand-img"
 														src="assets/img/brand_03.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(4)"><img class="img-fluid brand-img"
 														src="assets/img/brand_04.png" alt="Brand Logo"></a>
 											</div>
+																						
 										</div>
 									</div>
 									<!--End First slide-->
@@ -286,47 +287,23 @@
 									<div class="carousel-item">
 										<div class="row">
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(5)"><img class="img-fluid brand-img"
+														src="assets/img/brand_05.png" alt="Brand Logo"></a>
+											</div>
+											<div class="col-3 p-md-5">
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(1)"><img class="img-fluid brand-img"
 														src="assets/img/brand_01.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(7)"><img class="img-fluid brand-img"
 														src="assets/img/brand_02.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(3)"><img class="img-fluid brand-img"
 														src="assets/img/brand_03.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_04.png" alt="Brand Logo"></a>
-											</div>
 										</div>
 									</div>
 									<!--End Second slide-->
-
-									<!--Third slide-->
-									<div class="carousel-item">
-										<div class="row">
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_01.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_02.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_03.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_04.png" alt="Brand Logo"></a>
-											</div>
-										</div>
-									</div>
-									<!--End Third slide-->
 
 								</div>
 								<!--End Slides-->
@@ -372,6 +349,13 @@
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/js/templatemo.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script>
+	    function preventDefaultAndRedirect_Artist(artistId) {
+	        var url = 'shop?action=product-by-artist&artistId=' + artistId;
+	        window.location.href = url;
+	        return false;
+	    }
+	</script>
 	<!-- End Script -->
 </body>
 

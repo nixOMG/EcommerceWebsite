@@ -102,13 +102,13 @@ public class CartController extends HttpServlet {
 	                ArrayList<BillDetail> listBillDetails = new ArrayList<>();
 
 	                for (Map.Entry<Integer, Cart> entry : cart.entrySet()) {
-	                    int quanty = entry.getValue().getQuanty();
+	                    int quantity = entry.getValue().getQuantity();
 	                    int totalPrice = entry.getValue().getTotalPrice();
 	                    Product product = entry.getValue().getProduct();
 
 	                    BillDetail billDetail = new BillDetail();
 	                    billDetail.setPrice(product.getPrice());
-	                    billDetail.setQuantity(quanty);
+	                    billDetail.setQuantity(quantity);
 	                    billDetail.setProduct(product);
 	                    billDetail.setBill(bill);
 
@@ -220,12 +220,12 @@ public class CartController extends HttpServlet {
         
 		if(product != null && cart.containsKey(productId)) {
 			itemCart = cart.get(productId);
-			itemCart.setQuanty(itemCart.getQuanty() + 1);
-			itemCart.setTotalPrice(itemCart.getQuanty() * itemCart.getProduct().getPrice());
+			itemCart.setQuantity(itemCart.getQuantity() + 1);
+			itemCart.setTotalPrice(itemCart.getQuantity() * itemCart.getProduct().getPrice());
 		}
 		else {
 			itemCart.setProduct(product);
-			itemCart.setQuanty(1);
+			itemCart.setQuantity(1);
 			itemCart.setTotalPrice(product.getPrice());
 		}
 		cart.put(productId, itemCart);
@@ -233,11 +233,11 @@ public class CartController extends HttpServlet {
 	}
 	
 	public int totalQuantity(HashMap<Integer, Cart> cart) {
-		int totalQuanty = 0;
+		int totalQuantity = 0;
 		for(Map.Entry<Integer, Cart> itemCart : cart.entrySet()) {
-			totalQuanty += itemCart.getValue().getQuanty();	
+			totalQuantity += itemCart.getValue().getQuantity();	
 		}
-		return totalQuanty;
+		return totalQuantity;
 	}
 	
 	public int totalPrice(HashMap<Integer, Cart> cart) {
@@ -282,15 +282,15 @@ public class CartController extends HttpServlet {
 		
 	}
 	
-	public HashMap<Integer, Cart> editCart(int productId, int quanty, HashMap<Integer, Cart> cart) {
+	public HashMap<Integer, Cart> editCart(int productId, int quantity, HashMap<Integer, Cart> cart) {
 		if(cart == null) {
 			return cart;
 		}
 		Cart itemCart = new Cart();
 		if(cart.containsKey(productId)) {
 			itemCart = cart.get(productId);
-			itemCart.setQuanty(quanty);
-			int totalPrice = quanty * itemCart.getProduct().getPrice();
+			itemCart.setQuantity(quantity);
+			int totalPrice = quantity * itemCart.getProduct().getPrice();
 			itemCart.setTotalPrice(totalPrice);
 		}
 		cart.put(productId, itemCart);

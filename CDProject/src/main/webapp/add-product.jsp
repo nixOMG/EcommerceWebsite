@@ -69,8 +69,8 @@
 
             <div class="row mb-3">
                 <div class="col-6">
-                    <label for="describle" class="form-label">Describle:</label>
-                    <input type="text" class="form-control" id="describle" name="describle" required>
+                    <label for="describe" class="form-label">Describe:</label>
+                    <input type="text" class="form-control" id="describe" name="describe" required>
                 </div>
             </div>
             
@@ -87,7 +87,21 @@
                     <input type="number" class="form-control" id="price" name="price" required>
                 </div>
             </div>
-
+            
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label for="star" class="form-label">Star:</label>
+                    <input type="number" class="form-control" id="star" name="star" required>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label for="comment" class="form-label">Total Comment:</label>
+                    <input type="number" class="form-control" id="comment" name="comment" required>
+                </div>
+            </div>
+            
             <div class="row mb-3">
                 <div class="col-6">
                     <label for="image" class="form-label">Image:</label>

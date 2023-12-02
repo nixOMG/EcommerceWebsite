@@ -38,6 +38,16 @@
 			            </li>
 			        </c:forEach>
 			    </ul>
+    			<h1 class="h2 pb-4">Artists</h1>
+			    <ul class="list-unstyled templatemo-accordion">
+			        <c:forEach var="artist" items="${artists}">
+			            <li class="pb-3">
+			                <a class="text-decoration-none" href="#" onclick="return preventDefaultAndRedirect_Artist(${artist.artistId})">
+							    ${artist.name}
+							</a>
+			            </li>
+			        </c:forEach>
+			    </ul>
 			</div>
 
 			<div class="col-lg-9">
@@ -73,7 +83,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<c:forEach var="product" items="${products}">
+		<c:forEach var="product" items="${products}">
             <div class="col-md-4">
                 <div class="card mb-4 product-wap rounded-0">
                     <div class="card rounded-0">
@@ -91,19 +101,20 @@
                         
                         <ul class="list-unstyled d-flex justify-content-center mb-1">
                             <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
+                                <c:forEach begin="1" end="${product.star}" var="star">
+						            <i class="fa fa-star text-warning"></i>
+						        </c:forEach>
+						
+						        <c:forEach begin="${product.star + 1}" end="5" var="emptyStar">
+						            <i class="fa fa-star text-secondary"></i>
+						        </c:forEach>
                             </li>
                         </ul>
-                        <p class="text-center mb-0">${product.price}</p>
+                        <p class="text-center mb-0">${product.price} VNĐ</p>
                     </div>
                 </div>
             </div>
         </c:forEach>
-
 				</div>
 				<div div="row">
 					<ul class="pagination pagination-lg justify-content-end">
@@ -131,9 +142,9 @@
 		<div class="container my-4">
 			<div class="row text-center py-3">
 				<div class="col-lg-6 m-auto">
-					<h1 class="h1">Our brands</h1>
+					<h1 class="h1">Our Favorite Artist</h1>
 					<p>
-						Các Brands được ưa chuộng
+						Các Artist được ưa chuộng
 					</p>
 				</div>
 				<div class="col-lg-9 m-auto tempaltemo-carousel">
@@ -157,21 +168,22 @@
 									<div class="carousel-item active">
 										<div class="row">
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(1)"><img class="img-fluid brand-img"
 														src="assets/img/brand_01.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(7)"><img class="img-fluid brand-img"
 														src="assets/img/brand_02.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(3)"><img class="img-fluid brand-img"
 														src="assets/img/brand_03.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(4)"><img class="img-fluid brand-img"
 														src="assets/img/brand_04.png" alt="Brand Logo"></a>
 											</div>
+																						
 										</div>
 									</div>
 									<!--End First slide-->
@@ -180,48 +192,23 @@
 									<div class="carousel-item">
 										<div class="row">
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(5)"><img class="img-fluid brand-img"
+														src="assets/img/brand_05.png" alt="Brand Logo"></a>
+											</div>
+											<div class="col-3 p-md-5">
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(1)"><img class="img-fluid brand-img"
 														src="assets/img/brand_01.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(7)"><img class="img-fluid brand-img"
 														src="assets/img/brand_02.png" alt="Brand Logo"></a>
 											</div>
 											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
+												<a href="#" onclick="preventDefaultAndRedirect_Artist(3)"><img class="img-fluid brand-img"
 														src="assets/img/brand_03.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_04.png" alt="Brand Logo"></a>
-											</div>
 										</div>
 									</div>
 									<!--End Second slide-->
-
-									<!--Third slide-->
-									<div class="carousel-item">
-										<div class="row">
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_01.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_02.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_03.png" alt="Brand Logo"></a>
-											</div>
-											<div class="col-3 p-md-5">
-												<a href="#"><img class="img-fluid brand-img"
-														src="assets/img/brand_04.png" alt="Brand Logo"></a>
-											</div>
-										</div>
-									</div>
-									<!--End Third slide-->
-
 								</div>
 								<!--End Slides-->
 							</div>
@@ -261,6 +248,11 @@
 	    }
 	    function preventDefaultAndRedirect(categoryId) {
 	        var url = 'shop?action=product-by-category&categoryId=' + categoryId;
+	        window.location.href = url;
+	        return false;
+	    }
+	    function preventDefaultAndRedirect_Artist(artistId) {
+	        var url = 'shop?action=product-by-artist&artistId=' + artistId;
 	        window.location.href = url;
 	        return false;
 	    }

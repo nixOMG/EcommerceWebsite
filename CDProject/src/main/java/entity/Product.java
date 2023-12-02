@@ -39,18 +39,24 @@ public class Product implements Serializable {
     @Column(name = "release_date")
     private Date releaseDate;
 
-    @Column(name = "describle")
-    private String describle;
+    @Column(name = "product_describe")
+    private String describe;
 
     @Column(name = "weight")
     private int weight;
 
     @Column(name = "price")
     private int price;
-
+    
+    @Column(name = "star")
+    private int star;
+    
+    @Column(name = "comment")
+    private int comment;
+    
     @Column(name = "image")  // Thêm cột image
     private String image;
-
+    
     @OneToMany(mappedBy = "product")
     private List<BillDetail> billDetails;
 
@@ -104,12 +110,12 @@ public class Product implements Serializable {
         this.releaseDate = releaseDate;
     }
 
-    public String getDescrible() {
-        return describle;
+    public String getDescribe() {
+        return describe;
     }
 
-    public void setDescrible(String describle) {
-        this.describle = describle;
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 
     public int getWeight() {
@@ -128,6 +134,22 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
+    
+    public int getComment() {
+        return comment;
+    }
+
+    public void setComment(int comment) {
+        this.comment = comment;
+    }
+    
     public String getImage() {
         return image;
     }

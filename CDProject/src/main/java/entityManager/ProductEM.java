@@ -53,6 +53,14 @@ public class ProductEM {
 
         return query.getResultList();
     }
+
+    // hàm lấy danh sách sản phẩm theo artist_id
+    public List<Product> getProductsByArtistId(int artistId) {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p WHERE p.artist.artistId = :artistId", Product.class);
+        query.setParameter("artistId", artistId);
+
+        return query.getResultList();
+    }
     
     // hàm tìm kiếm sản phẩm theo tên
     public List<Product> searchProductsByName(String productName) {

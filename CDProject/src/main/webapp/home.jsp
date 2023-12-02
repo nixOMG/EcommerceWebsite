@@ -37,10 +37,13 @@
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1 text-success"><b>TST</b> eCommerce</h1>
-                                <h3 class="h2">Văn hóa giải trí của các nước Trung, Hàn và Nhật Bản</h3>
+                                <h3 class="h2">Văn hóa giải trí của các nước Trung, Hàn, Nhật Bản, Châu Mĩ</h3>
                                 <p>
-                                    TSTShop là một trang web chuyên các sản phẩm về văn hóa giải trí của 3 nước Trung Hàn và Nhật.
-                                    Các sản phẩm chủ yếu là truyện tranh, light novel, đĩa CD nhạc và các sản phẩm lightstick khác.
+                                    Chúng tôi là một cửa hàng chuyên về các sản phẩm văn hóa giải trí của các nước trên thế giới.
+									Luôn theo dõi và cập nhật những sản phẩm mới nhất, chất lượng nhất theo xu hướng của giới trẻ.
+									Với những dịch vụ phục vụ nhu cầu mua sắm những sản phẩm giải trí như truyện tranh, albums, CD
+									và lightstick...
+									Chúng tôi tự tin đưa đến các bạn những sản phẩm chất lượng theo những gì chúng tôi đăng bán.
                                 </p>
                             </div>
                         </div>
@@ -103,25 +106,25 @@
                 <h1 class="h1">Những hạng mục sản phẩm chính</h1>
                 <p>
                     Chúng tôi cung cấp các loại sản phẩm giải trí cụ thể: 
-                    ManHwa, Nhật Bản và Hàn quốc  
+                    Novel, CD và Các LightStick khác.  
                 </p>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Manhwa</h5>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <a href="shop?action=product-by-category&categoryId=1"><img src="./assets/img/category_01.png" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Album&CD</h2>
+                <p class="text-center"><a class="btn btn-success" href="shop?action=product-by-category&categoryId=1">Go Shop</a></p>
+            </div>        
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="shop?action=product-by-category&categoryId=3"><img src="./assets/img/category_03.png" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Books</h5>
+                <p class="text-center"><a class="btn btn-success" href="shop?action=product-by-category&categoryId=3">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Nhật Bản</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Hàn Quốc</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <a href="shop?action=product-by-category&categoryId=4"><img src="./assets/img/category_04.png" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Merchandise</h2>
+                <p class="text-center"><a class="btn btn-success" href="shop?action=product-by-category&categoryId=4">Go Shop</a></p>
             </div>
         </div>
     </section>
@@ -142,8 +145,8 @@
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
-                            <img src="./assets/img/hoasontaikhoi.jpg" class="card-img-top" alt="...">
+                        <a href="shop?productId=21&action=detail">
+                            <img src="./assets/img/SonTraNoMuon.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -154,50 +157,24 @@
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-muted fa fa-star"></i>
                                 </li>
-                                <li class="text-muted text-right">10.000VND</li>
+                                <li class="text-muted text-right">230.000 VNĐ</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Hoa Sơn Tái Khởi</a>
+                            <a href="shop?productId=21&action=detail" class="h2 text-decoration-none text-dark">SƠN TRÀ NỞ MUỘN</a>
                             <p class="card-text">
-                                Dây là bộ truyện tranh về Chuyển sinh sau 100 năm với một thân xác nhỏ bé, 
-                                Chong Myung nhận ra rằng Hoa Sơn Phái lẫy lừng năm xưa giờ chỉ còn là một môn phái nhỏ bé hoang tàn. 
-                                Với kí ức và những môn tuyệt học thất truyền từ kiếp trước, Chong Myung quyết tâm tái khởi Hoa Sơn Phái một lần nữa.
+                                Nếu mỗi cuốn tiểu thuyết được ví như thời gian trong một ngày, 
+                                thì Sơn Trà Nở Muộn có lẽ đã được bắt đầu vào thời điểm tăm tối nhất, 
+                                đó chính là nửa đêm.Nữ chính Hứa Huệ Chanh không hề xinh đẹp tuyệt trần hay đáng yêu như những nữ chính khác. 
+                                Cô có một khuôn mặt thanh tú, nhưng luôn bị che bởi lớp trang điểm lòe loẹt. 
+                                Khi hai người đến với nhau, cô luôn tự ti về quá khứ của mình nên không phản đối việc Chung Định kết hôn với người khác.
                             </p>
-                            <p class="text-muted">Reviews (24)</p>
+                            <p class="text-muted">Reviews(1)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
-                            <img src="./assets/img/chuthuathoichien.jpg" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">480.00VND</li>
-                            </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Chú thuật hồi chiến</a>
-                            <p class="card-text">
-                                Nhân vật chính Yuji Itadori vô tình hấp thụ một vật thể bị nguyền rủa và trở thành vật chủ của một Lời nguyền mạnh mẽ. 
-                                Sau đó cậu được giới thiệu với thế giới bí mật của các Chú thuật sư và gia nhập Tokyo Jujutsu High. 
-                                Cùng với những người bạn của mình, Yuji săn lùng những đồ vật bị nguyền rủa và chiến đấu với những Linh hồn bị nguyền rủa độc ác, 
-                                đồng thời đối mặt với hậu quả của việc chứa chấp một thực thể nguy hiểm trong người.
-                            </p>
-                            <p class="text-muted">Reviews (48)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="card h-100">
-                        <a href="shop-single.html">
-                            <img src="./assets/img/godsnewjeans.jpg" class="card-img-top" alt="...">
+                        <a href="shop?productId=2&action=detail">
+                            <img src="./assets/img/tlinh_ai.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -208,13 +185,43 @@
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
                                 </li>
-                                <li class="text-muted text-right">$360.00</li>
+                                <li class="text-muted text-right">250.000VNĐ</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gods-NewJeans</a>
+                            <a href="shop?productId=2&action=detail" class="h2 text-decoration-none text-dark">TLINH - ÁI ALBUM (STANDARD VER.) - ĐĨA CD</a>
                             <p class="card-text">
-                                Bài hát chủ đề và MV chính thức của CKTG 2023 ft. NewJeans (뉴진스).
+								Đúng với tên gọi, Ái như một cuốn nhật ký được hoàn thiện và đúc kết từ những chiêm nghiệm của tlinh khi quan sát và trải nghiệm tình yêu. 
+								Rõ ràng, tình yêu luôn là nguồn cảm hứng “muôn thuở” của biết bao nghệ sĩ, và tlinh cũng không ngoại lệ. 
+								Dường như, đây cũng là một trong những chất liệu chính xuất hiện trong các sản phẩm âm nhạc trước đây của cô. 
+								Thông qua các bài hát như Người điên, Kho báu đánh rơi, Ghệ iu dấu của em ơi… 
+								cùng những thước phim đầy màu sắc và thơ mộng trong một khu vườn đầy hoa, 
+								khán giả vẫn dễ dàng nhận ra tlinh vẫn luôn yêu hết mình và xem tình yêu là một điều thiêng liêng, tuyệt diệu
                             </p>
-                            <p class="text-muted">Reviews (74)</p>
+                            <p class="text-muted">Reviews(35)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop?productId=10&action=detail">
+                            <img src="./assets/img/blackpink_lightstick.png" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">980.000 VNĐ</li>
+                            </ul>
+                            <a href="shop?productId=10&action=detail" class="h2 text-decoration-none text-dark">BLACKPINK OFFICIAL LIGHT STICK VER.2</a>
+                            <p class="card-text">
+                                Lightstick của Blackpink Ver 2 mới, phát hành tháng 11/2020 nhận được rất nhiều sự quan tâm từ các Blink ngay từ thời điểm được ra mắt. 
+                                Hiện tại, đây cũng là phiên bản được bán phổ biến hơn trên thị trường Việt Nam, bao gồm cả mua có sẵn hàng hoặc đặt oder từ nước ngoài.
+                            </p>
+                            <p class="text-muted">Reviews(24)</p>
                         </div>
                     </div>
                 </div>

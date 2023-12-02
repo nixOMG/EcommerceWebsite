@@ -25,9 +25,9 @@
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=1">Album/CDs</a></li>
-                        <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=2">Merchandise</a></li>
-                        <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=3">Vinyl</a></li>
-                        <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=4">Books</a></li>
+                        <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=2">Vinyl</a></li>
+                        <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=3">Books</a></li>
+                        <li><a class="text-decoration-none" href="shop?action=product-by-category&categoryId=4">Merchandise</a></li>
                     </ul>
                 </div>
 

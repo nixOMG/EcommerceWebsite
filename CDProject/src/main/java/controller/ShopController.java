@@ -14,9 +14,11 @@ import javax.servlet.http.HttpSession;
 
 import entity.Category;
 import entity.Product;
+import entity.Artist;
 import entityManager.CategoryEM;
 import entityManager.DBUtil;
 import entityManager.ProductEM;
+import entityManager.ArtistEM;
 
 /**
  * Servlet implementation class ShopController
@@ -48,6 +50,9 @@ public class ShopController extends HttpServlet {
 		else if (action != null && action.equals("product-by-category")) {
 			getProductByCategory(request, response);
 		}
+		else if (action != null && action.equals("product-by-artist")) {
+			getProductByArtist(request, response);
+		}
 		else if (action != null && action.equals("search-product")) {
 			getProductBySearchName(request, response);
 		}
@@ -60,7 +65,7 @@ public class ShopController extends HttpServlet {
 
 	        // Đặt danh sách danh mục vào thuộc tính của request
 	        request.setAttribute("categories", categories);
-
+	       
 	        // Lấy danh sách sản phẩm
 	        ProductEM productEM = new ProductEM(entityManager);
 	        List<Product> products = productEM.getAllProducts();
@@ -68,7 +73,26 @@ public class ShopController extends HttpServlet {
 
 	        // Đặt danh sách sản phẩm vào thuộc tính của request
 	        request.setAttribute("products", products);
+	        
+	        /*ARTIST*/
+	        
+			// Lấy danh sách danh mục
+	        EntityManager entityManager_artist = DBUtil.getEntityManager();
+	        ArtistEM artistEM = new ArtistEM(entityManager_artist);
+	        List<Artist> artists = artistEM.getAllArtists();
+	        System.out.println(artists.size());
 
+	        // Đặt danh sách danh mục vào thuộc tính của request
+	        request.setAttribute("artists", artists);
+	        
+	        // Lấy danh sách sản phẩm
+	        ProductEM productEM_artist = new ProductEM(entityManager_artist);
+	        List<Product> products_artist = productEM_artist.getAllProducts();
+	        System.out.println(products_artist.size());
+	        
+	        // Đặt danh sách sản phẩm vào thuộc tính của request
+	        request.setAttribute("products", products_artist);
+	        
 	        String url = "/shop.jsp";
 	        // Chuyển hướng đến JSP để hiển thị danh sách danh mục và sản phẩm
 	        RequestDispatcher rd = request.getRequestDispatcher(url);
@@ -146,7 +170,46 @@ public class ShopController extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
+	private void getProductByArtist(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String artistIdStr = request.getParameter("artistId");
+			// Kiểm tra xem artistId có tồn tại và có giá trị hợp lệ không
+	        if (artistIdStr != null && !artistIdStr.isEmpty()) {
+	            try {
+	                int artistId = Integer.parseInt(artistIdStr);
 
+	                EntityManager entityManager = DBUtil.getEntityManager();
+	                // Lấy danh sách sản phẩm theo artist_id
+	                List<Product> products = new ProductEM(entityManager).getProductsByArtistId(artistId);
+
+	                // Đặt danh sách vào thuộc tính của request
+	                request.setAttribute("products", products);
+	                
+	                ArtistEM artistEM = new ArtistEM(entityManager);
+	    	        List<Artist> artists = artistEM.getAllArtists();
+	    	        request.setAttribute("artists", artists);
+	    	        
+	    	        Artist selectedArtist = artistEM.getArtistById(artistId);
+	    	        request.setAttribute("selectedArtist", selectedArtist);
+
+	                // Forward request đến JSP
+	                RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
+	                rd.forward(request, response);
+	            } catch (NumberFormatException e) {
+	                // Xử lý lỗi nếu artistId không phải là một số nguyên hợp lệ
+	                e.printStackTrace();
+	                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+	            }
+	        } else {
+	            // Xử lý lỗi nếu categoryId không được cung cấp
+	            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+	        }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private void getDetailProduct(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String productId = request.getParameter("productId");

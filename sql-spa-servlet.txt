@@ -1,0 +1,107 @@
+create database final;
+use final;
+
+-- Insert data into Role table
+INSERT INTO Role (description) VALUES
+('ADMIN'),
+('CUSTOMER');
+
+-- Insert data into Category table
+INSERT INTO Category (name) VALUES 
+('ALBUM'),
+('VINYL'),
+('BOOKS'),
+('MERCHANDISES');
+
+-- Insert data into Genre table
+INSERT INTO Genre (name) VALUES 
+('KPOP'),
+('VPOP'),
+('USUK'),
+('JPOP'),
+('CLOTHING'),
+('LIGHTSTICK'),
+('MAGAZINE'),
+('ROMANCE'),
+('HORROR'),
+('ACTION');
+
+
+-- Insert data into Artist table
+INSERT INTO Artist (name) VALUES 
+('TWICE'),
+('TLINH'),
+('RED VELVET'),
+('aespa'),
+('TAYLOR SWIFT'),
+('HOÀNG THUỲ LINH'),
+('BLACKPINK'),
+('NEWJEANS'),
+('NMIXX'),
+('Giá Oản Chúc'),
+('Thảo Trang'),
+('Triêu Tiểu Thành'),
+('Hoài Điệp Thứ Lang'),
+('Diệp Lạc Vô Tâm'),
+('Lâu Vũ Tình');
+
+-- Insert data into Product table
+INSERT INTO Product (name, category_id, genre_id, artist_id, release_date, product_describe, weight, price, star, comment, image) VALUES
+('TWICE – 12TH MINI ALBUM [READY TO BE] (Random Ver.)', 1, 1, 1, '2023-10-03', '[Album Components]
+- 3 types of photobooks (Photobook 3 ver.)
+- Message Photocard: 1 random 9', 400, 450000, 4, 15, 'twice_readytobe.png'),
+('TLINH - ÁI ALBUM (STANDARD VER.) - ĐĨA CD', 1, 2, 2, '2023-09-15', '1 Sleeve
+1 CD-R
+2 Photocards: Random 2 Out Of 14 / W55 x H85', 200, 250000, 5, 35, 'tlinh_ai.png'),
+('TWICE - OFFICIAL LIGHT STICK [CANDYBONG ∞]' ,4 ,6 , 1,'2023-05-25', 'Country of Origin : China
+Manufacturer/Imported By : (주)코팬글로벌', 800, 1200000, 5, 45, 'twice_candybong.png'),
+('RED VELVET – THE REVE FESTIVAL 2022  FEEL MY RHYTHM (MINI ALBUM) ORGEL VER', 1, 1, 3, '2022-03-22', '1 type of cover
+1 type of photo book (96 pages)
+Mini CD-R (1 type)
+1 random out of 2 poster types', 650, 350000, 5, 48, 'redvelvet_feelmyrythm.png'),
+('RED VELVET – The 3rd Album [Chill Kill] (Photo Book Ver.) (Random Ver.)', 1, 1, 3, '2023-11-13', '*Album specifications (final)
+- Cover: 2 types
+- Photo card: 1 out of 5 types', 840, 460000, 5, 5, 'redvelvet_chillkill.png'),
+('aespa – Mini Album Vol.1 [Savage] (P.O.S Ver.)', 1, 1, 4, '2021-10-05', '1 Case W142 x H142 x T35mm
+1 CD-R
+1 Poster', 430, 450000, 4, 24, 'aespa_savage.png'),
+('TAYLOR SWIFT - 1989 (Taylors Version)', 1, 3, 5, '2023-10-27', '1 Disc album 
+Side 1 includes full size photograph of Taylor Swift
+Side 2 ...', 400, 1500000, 5, 65, 'taylorswift_1989_cd.png'),
+('TAYLOR SWIFT - SPEAK NOW (TAYLORS VERSION) (ORCHID MARBLE VINYL 3LP) - ĐĨA THAN', 2, 3, 5, '2023-07-07', '22 Songs
+3 unique Orchid marbled color vinyl discs
+Full size gatefold photograph and prologue' ,350, 2400000, 5, 24, 'taylorswift_speaknow.png'),
+('HOÀNG THUỲ LINH - LINK (A SIDE B SIDE COLORED GATEFOLD VINYL LP) - ĐĨA THAN', 2, 2, 6, '2022-08-11', '1 type of cover
+1 type of photo book (96 pages)
+1 random out of 2 poster types', 450, 640000, 3, 54, 'hoangthuylinh_link.png'),
+('BLACKPINK OFFICIAL LIGHT STICK VER.2', 4, 6, 7, '2022-12-21', 'Country of Origin : China
+Manufacturer/Imported By : (주)코팬글로벌', 800, 980000, 5, 24, 'blackpink_lightstick.png'),
+('COSMOPOLITAN JUNE 2023 - NAYEON (TWICE)', 4, 7, 1, '2023-05-25', 'PICTORIALS & INTERVIEWS', 200, 180000, 4, 25, 'twice_nayeon_cosmopolitan_june2023.png'),
+('W KOREA DECEMBER 2023 - ROSÉ (BLACKPINK)', 4, 7, 7, '2023-11-27', 'PICTORIALS & INTERVIEWS', 200, 180000, 3, 6, 'blackpink_rose_wkorea_december2023.png'),
+('BAZAAR JUNE 2023 - LISA (BLACKPINK)', 4, 7, 7, '2023-06-05', 'PICTORIALS & INTERVIEWS', 230, 200000, 2, 4, 'blackpink_lisa_bazaar_june2023.png'),
+('NEWJEANS OFFICIAL LIGHT STICK', 4, 6, 8, '2023-04-09', 'LIGHTSTICK - 1 each
+STRAP - 1 each
+MANUAL - 1 each', 800, 1150000, 2, 5, 'newjeans_lightstick.png'),
+('NMIXX OFFICIAL LIGHT STICK', 4, 6, 9, '2023-03-13', 'LIGHTSTICK - 1 each
+STRAP - 1 each
+USER MANUAL - 1 each', 800, 1200000, 4, 84, 'nmixx_lightstick.png'),
+('AESPA 4TH MINI ALBUM [DRAMA] (SMINI)', 1, 1, 4, '2023-11-10', 'KEYRING BALL CHAIN - 1 each
+MUSIC NFC CD - 1 disc
+PHOTOCARD - Random 1 out of 4', 100, 160000, 5, 54, 'aespa_drama_smini.png'),
+('TWICE – Hare Hare (Limited Edition) [10th Japan Single Album]', 1, 4, 1, '2023-03-04', '*Album specifications (final)
+- Cover: 2 types
+- Photo card: Randomly inserted 1 out of 5 types', 460, 680000, 4, 12, 'twice_harehare.png'),
+('BLACKPINK - TSHIRT BORNPINK TOUR', 4, 5, 7, '2022-04-04', '100% cotton', 230, 750000, 3, 23, 'blackpink_tshirt.png'),
+('TWICE - READY TO BE TOUR T SHIRT', 4, 5, 1, '2022-10-20', '100% cotton', 230, 750000, 4, 32, 'twice_readytobe_tshirt.png'),
+('BLACKPINK - THE ALBUM (BOX SET)', 1, 1, 7, '2020-10-02', 'THE ALBUM INCLUDES:
+A PACKAGE BOX (4 DIFFERENT VERSIONS)
+PHOTOCARDS (2 OF 20)
+POSTCARDS (2 OF 20)
+STICKER (1 OF 4)
+MOUNTED PHOTOCARD.', 600, 600000, 5, 42, 'blackpink_thealbum.png'),
+('SƠN TRÀ NỞ MUỘN', 3, 8, 10, '2023-01-01', 'Số trang: 648', 200, 230000, 4, 1, 'SonTraNoMuon.png'),
+('TẾT Ở LÀNG ĐỊA NGỤC', 3, 9, 11, '2022-02-01', 'Số trang: 544', 00, 150000, 2, 15, 'TetOLangDiaNguc.png'),
+('ĐƯỜNG GIA TIỂU MIÊU', 3, 8, 12, '2020-07-20', 'Số trang: 460', 200, 180000, 3, 54, 'DuongGiaTamMieu.png'),
+('NGƯỜI ĐAO PHỦ THÀNH ĐẠI LA', 3, 10, 13, '2022-01-01', 'Số trang: 388', 150, 120000, 5, 56, 'NguoiDaoPhuThanhDaiLa.png'),
+('MÃI MÃI LÀ BAO XA', 3, 8, 14, '2019-07-01', 'Số trang: 590', 225, 90000, 4, 113, 'MaiMaiLaBaoXa.png'),
+('THẤT TỊCH KHÔNG MƯA', 3, 8, 15, '2019-10-01', 'Số trang:  550', 200, 70000, 5, 154, 'ThatTichKhongMua.png');
