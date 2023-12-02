@@ -235,27 +235,41 @@
 	<!-- End Footer -->
 	
 	<script>
-	    function handleChange() {
-	        var dropdown = document.getElementById("sortDropdown");
-	        var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+		window.onload = function() {
+		    var sortDropdown = document.getElementById('sortDropdown');
+		    
+		    // Check if there is a selected sort option in the local storage
+		    if(localStorage.getItem('selectedSortOption')) {
+		        sortDropdown.value = localStorage.getItem('selectedSortOption');
+		    }
+		}
 	
-	        // Xử lý logic tương ứng với giá trị đã chọn
-	        if (selectedValue === "priceasc") {
-	            window.location.href = "shop?sort=priceasc&action=sort";
-	        } else if (selectedValue === "atoz") {
-	            window.location.href = "shop?sort=atoz&action=sort";
-	        }
-	    }
-	    function preventDefaultAndRedirect(categoryId) {
-	        var url = 'shop?action=product-by-category&categoryId=' + categoryId;
-	        window.location.href = url;
-	        return false;
-	    }
-	    function preventDefaultAndRedirect_Artist(artistId) {
-	        var url = 'shop?action=product-by-artist&artistId=' + artistId;
-	        window.location.href = url;
-	        return false;
-	    }
+		function handleChange() {
+		    var dropdown = document.getElementById("sortDropdown");
+		    var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+	
+		    // Store the selected sort option in the local storage
+		    localStorage.setItem('selectedSortOption', selectedValue);
+	
+		    // Xử lý logic tương ứng với giá trị đã chọn
+		    if (selectedValue === "priceasc") {
+		        window.location.href = "shop?sort=priceasc&action=sort";
+		    } else if (selectedValue === "atoz") {
+		        window.location.href = "shop?sort=atoz&action=sort";
+		    }
+		}
+	
+		function preventDefaultAndRedirect(categoryId) {
+		    var url = 'shop?action=product-by-category&categoryId=' + categoryId;
+		    window.location.href = url;
+		    return false;
+		}
+	
+		function preventDefaultAndRedirect_Artist(artistId) {
+		    var url = 'shop?action=product-by-artist&artistId=' + artistId;
+		    window.location.href = url;
+		    return false;
+		}
 	</script>
 
 	<!-- Start Script -->

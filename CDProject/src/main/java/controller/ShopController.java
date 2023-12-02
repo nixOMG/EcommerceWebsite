@@ -121,7 +121,14 @@ public class ShopController extends HttpServlet {
                 CategoryEM categoryEM = new CategoryEM(entityManager);
     	        List<Category> categories = categoryEM.getAllCategories();
     	        request.setAttribute("categories", categories);
+    	        
+    	        EntityManager entityManager_artist = DBUtil.getEntityManager();
+    	        ArtistEM artistEM = new ArtistEM(entityManager_artist);
+    	        List<Artist> artists = artistEM.getAllArtists();
+    	        System.out.println(artists.size());
 
+    	        // Đặt danh sách danh mục vào thuộc tính của request
+    	        request.setAttribute("artists", artists);
                 // Forward request đến JSP
                 RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
                 rd.forward(request, response);
@@ -150,6 +157,14 @@ public class ShopController extends HttpServlet {
 	                CategoryEM categoryEM = new CategoryEM(entityManager);
 	    	        List<Category> categories = categoryEM.getAllCategories();
 	    	        request.setAttribute("categories", categories);
+	    	        
+	    	        EntityManager entityManager_artist = DBUtil.getEntityManager();
+	    	        ArtistEM artistEM = new ArtistEM(entityManager_artist);
+	    	        List<Artist> artists = artistEM.getAllArtists();
+	    	        System.out.println(artists.size());
+
+	    	        // Đặt danh sách danh mục vào thuộc tính của request
+	    	        request.setAttribute("artists", artists);
 	    	        
 	    	        Category selectedCategory = categoryEM.getCategoryById(categoryId);
 	    	        request.setAttribute("selectedCategory", selectedCategory);
@@ -185,6 +200,10 @@ public class ShopController extends HttpServlet {
 
 	                // Đặt danh sách vào thuộc tính của request
 	                request.setAttribute("products", products);
+	                
+	                CategoryEM categoryEM = new CategoryEM(entityManager);
+	    	        List<Category> categories = categoryEM.getAllCategories();
+	    	        request.setAttribute("categories", categories);
 	                
 	                ArtistEM artistEM = new ArtistEM(entityManager);
 	    	        List<Artist> artists = artistEM.getAllArtists();
@@ -224,7 +243,7 @@ public class ShopController extends HttpServlet {
 		
 		        // Đặt sản phẩm vào thuộc tính của request để truyền qua JSP
 		        request.setAttribute("product", product);
-		
+		        
 		        // Đóng EntityManager
 		        if (entityManager.getEntityManagerFactory().isOpen()) {
 		            entityManager.close();
@@ -264,6 +283,14 @@ public class ShopController extends HttpServlet {
 	        CategoryEM categoryEM = new CategoryEM(entityManager);
 	        List<Category> categories = categoryEM.getAllCategories();
 	        request.setAttribute("categories", categories);
+	        
+	        EntityManager entityManager_artist = DBUtil.getEntityManager();
+	        ArtistEM artistEM = new ArtistEM(entityManager_artist);
+	        List<Artist> artists = artistEM.getAllArtists();
+	        System.out.println(artists.size());
+
+	        // Đặt danh sách danh mục vào thuộc tính của request
+	        request.setAttribute("artists", artists);
 	        
 	        String url = "/shop.jsp";
 	        // Chuyển hướng đến JSP để hiển thị danh sách danh mục và sản phẩm

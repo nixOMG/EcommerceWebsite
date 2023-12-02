@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TST Shop eCommerce</title>
-<link rel="stylesheet" type="text/css" href="admin.css" />
+<link rel="stylesheet" type="text/css" href="./assets/css/admin.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>

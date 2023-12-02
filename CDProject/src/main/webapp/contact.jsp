@@ -198,7 +198,8 @@ https://templatemo.com/tm-559-zay-shop
 	<!-- Start Contact -->
 	<div class="container py-5">
 		<div class="row py-5">
-			<form class="col-md-9 m-auto" method="post" role="form">
+			<form class="col-md-9 m-auto" method="post" role="form" action="sendMail">
+				<input type="hidden" name="action" value="sendEmail" required>
 				<div class="row">
 					<div class="form-group col-md-6 mb-3">
 						<label for="inputname">Name</label>
@@ -220,7 +221,7 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 				<div class="row">
 					<div class="col text-end mt-2">
-						<button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
+						<button type="submit" class="btn btn-success btn-lg px-3" value="Send">Let’s Talk</button>
 					</div>
 				</div>
 			</form>

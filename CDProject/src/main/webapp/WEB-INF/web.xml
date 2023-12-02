@@ -17,11 +17,20 @@
     <servlet-class>controller.WebController</servlet-class>
   </servlet>
 
+
   <servlet-mapping>
     <servlet-name>WebController</servlet-name>
     <url-pattern>/WebController</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>MailController</servlet-name>
+    <servlet-class>controller.MailController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+        <servlet-name>MailController</servlet-name>
+        <url-pattern>/sendMail</url-pattern>
+    </servlet-mapping>
   <listener>
     <listener-class>entity.MyServletContextListener</listener-class>
 </listener>
