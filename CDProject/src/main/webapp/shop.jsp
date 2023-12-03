@@ -116,20 +116,16 @@
             </div>
         </c:forEach>
 				</div>
-				<div div="row">
-					<ul class="pagination pagination-lg justify-content-end">
-						<li class="page-item disabled">
-							<a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
-								tabindex="-1">1</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-								href="#">2</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-						</li>
-					</ul>
+				<div class="pagination-container">
+				    <c:if test="${totalPages > 1}">
+				        <ul class="pagination">
+				            <c:forEach begin="1" end="${totalPages}" var="page">
+				                <li class="<c:if test="${page == pageNumber}">active</c:if>">
+				                    <a href="shop?page=${page}">${page}</a>
+				                </li>
+				            </c:forEach>
+				        </ul>
+				    </c:if>
 				</div>
 			</div>
 

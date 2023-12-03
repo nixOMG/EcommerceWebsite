@@ -3,6 +3,7 @@ package entityManager;
 import entity.Product;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -97,4 +98,22 @@ public class ProductEM {
         entityManager.merge(product);
         entityManager.getTransaction().commit();
     }
+    
+    public void deleteProduct(Product product) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            entityManager.remove(product);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            System.out.println(e);
+        }
+        finally {
+        	entityManager.close();
+        }
+    }
+
 }

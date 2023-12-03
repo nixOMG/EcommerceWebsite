@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -51,6 +52,8 @@ public class ProductController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
 		if(action != null && action.equals("get-page-add-product")) {
 			handleGetPageAddProduct(request, response);
@@ -58,12 +61,58 @@ public class ProductController extends HttpServlet {
 		else if(action != null && action.equals("get-page-edit-product")) {
 			handleGetPageEditProduct(request, response);
 		}
+		else if (action != null && action.equals("get-page-delete-product")) {
+			handleGetPageDeleteProduct(request, response);
+		}
 		else {
 			handleGetProductsByPage(request, response);
 		}
 	}
+	
+	private void handleGetPageDeleteProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			 int productId = Integer.parseInt(request.getParameter("productId"));
+			 
+			 EntityManager entityManager = DBUtil.getEntityManager();
+			 
+			 ProductEM productEM = new ProductEM(entityManager);
+			 Product product = productEM.getProductById(productId);
+			 
+			// Đặt thông tin sản phẩm vào request để chuyển đến trang delete-product.jsp
+             request.setAttribute("product", product);
 
-	private void handleGetPageEditProduct(HttpServletRequest request, HttpServletResponse response) {
+            // Lấy toàn bộ dữ liệu về Category, Genre và Artist
+            CategoryEM categoryEM = new CategoryEM(entityManager);
+            List<Category> categories = categoryEM.getAllCategories();
+
+            GenreEM genreEM = new GenreEM(entityManager);
+            List<Genre> genres = genreEM.getAllGenres();
+
+            ArtistEM artistEM = new ArtistEM(entityManager);
+            List<Artist> artists = artistEM.getAllArtists();
+            
+         // Đặt danh sách category, genre, artist vào request
+            request.setAttribute("categories", categories);
+            request.setAttribute("genres", genres);
+            request.setAttribute("artists", artists);
+
+            // Đóng EntityManager
+            entityManager.close();
+            
+         // Chuyển hướng đến trang edit-product.jsp
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/delete-product.jsp");
+            dispatcher.forward(request, response);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	private void handleGetPageEditProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		try {
 			 int productId = Integer.parseInt(request.getParameter("productId"));
 			 
@@ -103,7 +152,9 @@ public class ProductController extends HttpServlet {
 		
 	}
 
-	private void handleGetProductsByPage(HttpServletRequest request, HttpServletResponse response) {
+	private void handleGetProductsByPage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		try {
 			int pageNumber = 1;
 	        int pageSize = 5;
@@ -140,7 +191,9 @@ public class ProductController extends HttpServlet {
 		
 	}
 
-	private void handleGetPageAddProduct(HttpServletRequest request, HttpServletResponse response) {
+	private void handleGetPageAddProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		try {
 			EntityManager entityManager = DBUtil.getEntityManager();
 
@@ -176,6 +229,8 @@ public class ProductController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
 		if(action != null && action.equals("add-product")) {
 			handleAddProduct(request, response);
@@ -183,9 +238,41 @@ public class ProductController extends HttpServlet {
 		else if(action != null && action.equals("edit-product")) {
 			handleEditProduct(request, response);
 		}
+		else if (action != null && action.equals("delete-product")){
+			handleDeleteProduct(request, response);
+		}
+		else {
+			handleGetProductsByPage(request, response);
+		}
+	}
+	
+	private void handleDeleteProduct(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+	    request.setCharacterEncoding("UTF-8");
+	    response.setCharacterEncoding("UTF-8");
+	    try {
+	        int productId = Integer.parseInt(request.getParameter("productId"));
+	        
+	        // Gọi hàm để lấy sản phẩm từ CSDL dựa trên productId
+	        EntityManager entityManager = DBUtil.getEntityManager();
+	        
+	        ProductEM productEM = new ProductEM(entityManager);
+	        Product productToDelete = productEM.getProductById(productId);
+	        
+	        // Gọi hàm xóa sản phẩm trong ProductEM
+	        productEM.deleteProduct(productToDelete);
+	        
+	        // Chuyển hướng về trang danh sách sản phẩm sau khi xóa
+	        handleGetProductsByPage(request, response);
+	        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 
-	private void handleEditProduct(HttpServletRequest request, HttpServletResponse response) {
+	
+	private void handleEditProduct(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		try {
 			int productId = Integer.parseInt(request.getParameter("productId"));
 			// Xử lý các trường thông tin sản phẩm
@@ -272,6 +359,7 @@ public class ProductController extends HttpServlet {
 	
 	// Hàm lưu ảnh vào thư mục và trả về tên file
     private String saveImageToDirectory(InputStream imageInputStream) throws IOException {
+    	
         // Thư mục lưu trữ ảnh
         String uploadDirectoryPath = getServletContext().getRealPath("/assets/img");
 
@@ -291,6 +379,7 @@ public class ProductController extends HttpServlet {
 	private void handleAddProduct(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
 			// Xử lý các trường thông tin sản phẩm
 	        String name = request.getParameter("name");
 	        int categoryId = Integer.parseInt(request.getParameter("categoryId"));

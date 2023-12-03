@@ -8,7 +8,7 @@
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
-                            01 Võ Văn Ngân, Linh Trung, Thủ Đức, TPHCM
+                            <a class="text-decoration-none" href="https://maps.app.goo.gl/zMeoZnwUZFLg53sq6">01 Võ Văn Ngân, Linh Trung, Thủ Đức, TPHCM</a>
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>

@@ -57,6 +57,11 @@ public class ShopController extends HttpServlet {
 			getProductBySearchName(request, response);
 		}
 		else {
+			int pageNumber = 1;
+	        int pageSize = 6;
+	        if (request.getParameter("page") != null) {
+	            pageNumber = Integer.parseInt(request.getParameter("page"));
+	        }
 			// Lấy danh sách danh mục
 	        EntityManager entityManager = DBUtil.getEntityManager();
 	        CategoryEM categoryEM = new CategoryEM(entityManager);
@@ -68,11 +73,13 @@ public class ShopController extends HttpServlet {
 	       
 	        // Lấy danh sách sản phẩm
 	        ProductEM productEM = new ProductEM(entityManager);
-	        List<Product> products = productEM.getAllProducts();
+	        List<Product> products = productEM.getProductsPaged(pageNumber, pageSize);
+            Long totalProducts = productEM.getProductsCount();
+            int totalPages = (int) Math.ceil((double) totalProducts / pageSize);
 	        System.out.println(products.size());
 
 	        // Đặt danh sách sản phẩm vào thuộc tính của request
-	        request.setAttribute("products", products);
+	        
 	        
 	        /*ARTIST*/
 	        
@@ -87,10 +94,13 @@ public class ShopController extends HttpServlet {
 	        
 	        // Lấy danh sách sản phẩm
 	        ProductEM productEM_artist = new ProductEM(entityManager_artist);
-	        List<Product> products_artist = productEM_artist.getAllProducts();
+	        List<Product> products_artist = productEM_artist.getProductsPaged(pageNumber, pageSize);
 	        System.out.println(products_artist.size());
 	        
 	        // Đặt danh sách sản phẩm vào thuộc tính của request
+	        request.setAttribute("products", products);
+	        request.setAttribute("pageNumber", pageNumber);
+            request.setAttribute("totalPages", totalPages);
 	        request.setAttribute("products", products_artist);
 	        
 	        String url = "/shop.jsp";

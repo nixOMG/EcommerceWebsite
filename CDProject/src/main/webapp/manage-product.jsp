@@ -130,7 +130,7 @@
                 <td>
                     <!-- Thêm các button Action tương ứng với sản phẩm -->
                     <a style="margin-right: 10px" href="manage-product?action=get-page-edit-product&productId=${product.productId}"><i class="fa-solid fa-pencil"></i></a>
-                    <a href="manage-product?action=delete&productId=${product.productId}"><i class="fa-solid fa-trash"></i></a>
+                    <a href="manage-product?action=get-page-delete-product&productId=${product.productId}"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
         </c:forEach>
