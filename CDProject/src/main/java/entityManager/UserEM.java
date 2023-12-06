@@ -9,6 +9,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import entity.Category;
+import entity.Product;
 import entity.User;
 
 public class UserEM {
@@ -35,6 +37,8 @@ public class UserEM {
         }
     }
 
+    
+    
     public boolean updateUser(User user) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -71,6 +75,14 @@ public class UserEM {
             e.printStackTrace();
             return false;
         }
+    }
+    
+    public List<User> getAllUsers() {
+        // Tạo một truy vấn TypedQuery để lấy danh sách tất cả các danh mục
+        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
+
+        // Thực hiện truy vấn và trả về danh sách kết quả
+        return query.getResultList();
     }
 
     public User getUserById(int userId) {
@@ -124,5 +136,19 @@ public class UserEM {
             // Xử lý lỗi hoặc thông báo lỗi nếu cần
             return Collections.emptyList(); // hoặc trả về danh sách rỗng, hoặc null tùy vào yêu cầu của bạn
         }
+    }
+    public List<User> getUsersPaged(int pageNumber, int pageSize, int roleId) {
+        TypedQuery<User> query = entityManager.createQuery(
+                "SELECT u FROM User u WHERE u.role.roleId = :roleId", User.class);
+        query.setParameter("roleId", roleId);
+        query.setFirstResult((pageNumber - 1) * pageSize);
+        query.setMaxResults(pageSize);
+        return query.getResultList();
+    }
+    public Long getUsersCount() {
+        TypedQuery<Long> query = entityManager.createQuery(
+                "SELECT COUNT(u) FROM User u", Long.class);
+
+        return query.getSingleResult();
     }
 }

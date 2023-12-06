@@ -2,7 +2,10 @@ package entityManager;
 
 import entity.Bill;
 import entity.BillDetail;
+import entity.Product;
+import entity.User;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -35,10 +38,67 @@ public class BillEM {
             if (transaction != null && transaction.isActive()) {
                 transaction.rollback();
             }
-            e.printStackTrace(); // Xử lý lỗi hoặc log lỗi tùy theo nhu cầu của bạn
+            e.printStackTrace();
         }
     }
     
+    public void updateBill(Bill billToUpdate, User user, Date billDate, int totalPrice, int shipFee, int status) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+
+            // Update Bill
+            billToUpdate.setUser(user);
+            billToUpdate.setBillDate(billDate);
+            billToUpdate.setTotalPrice(totalPrice);
+            billToUpdate.setShipFee(shipFee);
+            billToUpdate.setStatus(status);
+
+            // Persist changes
+            entityManager.persist(billToUpdate);
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+
+    public void deleteBillAndDetails(int billId) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+
+            // Find the Bill
+            Bill bill = entityManager.find(Bill.class, billId);
+            if (bill == null) {
+                throw new IllegalArgumentException("No Bill with id " + billId);
+            }
+
+            // Delete BillDetails
+            for (BillDetail billDetail : bill.getBillDetails()) {
+                entityManager.remove(billDetail);
+            }
+
+            // Delete Bill
+            entityManager.remove(bill);
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    public Bill getBillById(int billId) {
+        // Sử dụng find để lấy sản phẩm theo ID
+        return entityManager.find(Bill.class, billId);
+    }
  // Phương thức để lấy toàn bộ danh sách hóa đơn từ cơ sở dữ liệu
     public List<Bill> getAllBills() {
         // Tạo một truy vấn TypedQuery để lấy danh sách tất cả các hóa đơn
@@ -54,5 +114,20 @@ public class BillEM {
         query.setParameter("userId", userId);
 
         return query.getResultList();
+    }
+    
+    public List<Bill> getBillsPaged(int pageNumber, int pageSize) {
+        TypedQuery<Bill> query = entityManager.createQuery(
+                "SELECT b FROM Bill b", Bill.class)
+                .setFirstResult((pageNumber - 1) * pageSize)
+                .setMaxResults(pageSize);
+
+        return query.getResultList();
+    }
+    public Long getBillsCount() {
+        TypedQuery<Long> query = entityManager.createQuery(
+                "SELECT COUNT(b) FROM Bill b", Long.class);
+
+        return query.getSingleResult();
     }
 }

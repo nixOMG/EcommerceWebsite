@@ -39,7 +39,7 @@
       </tr>
     </thead>
    <tbody>
-       <c:forEach var="bill" items="${billList}" varStatus="loop">
+       <c:forEach var="bill" items="${bills}" varStatus="loop">
            <tr>
                <td><c:out value="${loop.index + 1}" /></td>
                <td><c:out value="${bill.billId}" /></td>
@@ -57,10 +57,11 @@
 	                    <c:otherwise>Trạng thái không xác định</c:otherwise>
 	                </c:choose>
            		</td>
-               <td>
-               		<button><i class="fa-solid fa-pencil"></i></button>
-      	      		<button><i class="fa-solid fa-trash"></i></button>
-               </td>
+               <<td>
+                    <!-- Thêm các button Action tương ứng với sản phẩm -->
+                    <a style="margin-right: 10px" href="manage-bill?action=get-page-edit-bill&billId=${bill.billId}"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="manage-bill?action=get-page-delete-bill&billId=${bill.billId}"><i class="fa-solid fa-trash"></i></a>
+                </td>
            </tr>
        </c:forEach>
    </tbody>

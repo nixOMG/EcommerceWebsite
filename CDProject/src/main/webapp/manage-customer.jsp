@@ -38,18 +38,18 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="customer" items="${customers}" varStatus="loop">
+            <c:forEach var="user" items="${users}" varStatus="loop">
                 <tr>
                     <td><c:out value="${loop.index + 1}" /></td>
-                    <td><c:out value="${customer.userId}" /></td>
-                    <td><c:out value="${customer.firstName}" /></td>
-                    <td><c:out value="${customer.lastName}" /></td>
-                    <td><c:out value="${customer.email}" /></td>
-                    <td><c:out value="${customer.address}" /></td>
-                    <td><c:out value="${customer.phone}" /></td>
+                    <td><c:out value="${user.userId}" /></td>
+                    <td><c:out value="${user.firstName}" /></td>
+                    <td><c:out value="${user.lastName}" /></td>
+                    <td><c:out value="${user.email}" /></td>
+                    <td><c:out value="${user.address}" /></td>
+                    <td><c:out value="${user.phone}" /></td>
                     <td>
-                        <button><i class="fa-solid fa-pencil"></i></button>
-                        <button><i class="fa-solid fa-trash"></i></button>
+                        <a style="margin-right: 10px" href="manage-customer?action=get-page-edit-user&userId=${user.userId}"><i class="fa-solid fa-pencil"></i></a>
+                    	<a href="manage-customer?action=get-page-delete-user&userId=${user.userId}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </c:forEach>
