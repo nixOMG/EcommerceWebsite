@@ -51,7 +51,7 @@
     <div class="container">
         <h2 class="mb-4">Delete Bill</h2>
         
-        <form action="manage-bill" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form action="manage-bill" method="post" enctype="multipart/form-data" accept-charset="UTF-8" onsubmit="return confirmDelete()">
         	<input type="hidden" name="action" value="delete-bill"/>
         	<input type="hidden" name="billId" value="${bill.billId}"/>
             <div class="row mb-3">
@@ -91,7 +91,16 @@
             <button type="submit" class="btn btn-primary">Delete</button>
         </form>
     </div>
-
+	<script>
+		function confirmDelete() {
+		    var r = confirm("Bạn có chắc là muốn xóa không?");
+		    if (r == true) {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
+	</script>
     <!-- Thêm thư viện JavaScript Bootstrap (đặt ở cuối body) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

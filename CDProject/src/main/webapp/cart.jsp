@@ -191,21 +191,21 @@ https://templatemo.com/tm-559-zay-shop
 								            </div>
 								           
 								            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-								            	<form method="POST" style="display: flex; gap: 20px;" action="cart">
-								            		<input type="hidden" name="action" value="edit-cart"/>
-								            		<input type="hidden" name="productId" value="${entry.value.product.productId}">
-									                <button class="btn btn-link px-2" type="submit"
-									                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-									                    <i class="fas fa-minus"></i>
-									                </button>
-									                <input id="form1" min="0" style="width: 80px;" name="quantity" value="${entry.value.quantity}" type="number"
-									                    class="form-control form-control-sm" />
-									                <button class="btn btn-link px-2" type="submit"
-									                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-									                    <i class="fas fa-plus"></i>
-									                </button>
-								                </form>
-								            </div>
+											    <form method="POST" style="display: flex; gap: 20px;" action="cart">
+											        <input type="hidden" name="action" value="edit-cart"/>
+											        <input type="hidden" name="productId" value="${entry.value.product.productId}">
+											        <button class="btn btn-link px-2" type="button"
+											            onclick="updateQuantity(this.parentNode, -1)">
+											            <i class="fas fa-minus"></i>
+											        </button>
+											        <input id="form1" min="0" style="width: 80px;" name="quantity" value="${entry.value.quantity}" type="number"
+											            class="form-control form-control-sm" onchange="checkQuantity(this.parentNode)" />
+											        <button class="btn btn-link px-2" type="button"
+											            onclick="updateQuantity(this.parentNode, 1)">
+											            <i class="fas fa-plus"></i>
+											        </button>
+											    </form>
+											</div>
 								            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
 								                <h6 class="mb-0">${entry.value.totalPrice} VNĐ</h6>
 								            </div>

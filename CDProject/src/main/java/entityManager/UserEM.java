@@ -9,6 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import entity.Bill;
 import entity.Category;
 import entity.Product;
 import entity.User;
@@ -59,6 +60,25 @@ public class UserEM {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
+
+            // Lấy danh sách tất cả các Bill liên quan đến User
+            Query billQuery = entityManager.createQuery("SELECT b FROM Bill b WHERE b.user.userId = :userId", Bill.class);
+            billQuery.setParameter("userId", userId);
+            List<Bill> bills = billQuery.getResultList();
+
+            // Xóa tất cả các BillDetail liên quan đến từng Bill
+            for (Bill bill : bills) {
+                Query billDetailQuery = entityManager.createQuery("DELETE FROM BillDetail bd WHERE bd.bill.billId = :billId");
+                billDetailQuery.setParameter("billId", bill.getBillId());
+                billDetailQuery.executeUpdate();
+            }
+
+            // Xóa tất cả các Bill
+            Query deleteBillQuery = entityManager.createQuery("DELETE FROM Bill b WHERE b.user.userId = :userId");
+            deleteBillQuery.setParameter("userId", userId);
+            deleteBillQuery.executeUpdate();
+
+            // Xóa User
             User user = entityManager.find(User.class, userId);
             if (user != null) {
                 entityManager.remove(user);
@@ -76,6 +96,8 @@ public class UserEM {
             return false;
         }
     }
+
+
     
     public List<User> getAllUsers() {
         // Tạo một truy vấn TypedQuery để lấy danh sách tất cả các danh mục

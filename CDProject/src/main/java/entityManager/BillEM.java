@@ -40,20 +40,23 @@ public class BillEM {
             }
             e.printStackTrace();
         }
+        finally {
+        	entityManager.close();
+        }
     }
     
     public void updateBill(Bill billToUpdate, User user, Date billDate, int totalPrice, int shipFee, int status) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-
+            
             // Update Bill
             billToUpdate.setUser(user);
             billToUpdate.setBillDate(billDate);
             billToUpdate.setTotalPrice(totalPrice);
             billToUpdate.setShipFee(shipFee);
             billToUpdate.setStatus(status);
-
+            entityManager.refresh(billToUpdate);
             // Persist changes
             entityManager.persist(billToUpdate);
 
@@ -63,6 +66,9 @@ public class BillEM {
                 transaction.rollback();
             }
             e.printStackTrace();
+        }
+        finally {
+        	entityManager.close();
         }
     }
 
@@ -74,6 +80,7 @@ public class BillEM {
 
             // Find the Bill
             Bill bill = entityManager.find(Bill.class, billId);
+            entityManager.refresh(bill);
             if (bill == null) {
                 throw new IllegalArgumentException("No Bill with id " + billId);
             }
@@ -92,6 +99,9 @@ public class BillEM {
                 transaction.rollback();
             }
             e.printStackTrace();
+        }
+        finally {
+        	entityManager.close();
         }
     }
 

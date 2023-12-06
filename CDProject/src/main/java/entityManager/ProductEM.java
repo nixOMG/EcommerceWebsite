@@ -94,9 +94,19 @@ public class ProductEM {
     
     // cập nhật sản phẩm
     public void updateProduct(Product product) {
-        entityManager.getTransaction().begin();
-        entityManager.merge(product);
-        entityManager.getTransaction().commit();
+        try {
+        	entityManager.getTransaction().begin();
+        	entityManager.merge(product);
+        	entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            if (entityManager.getTransaction().isActive()) {
+            	entityManager.getTransaction().rollback();;
+            }
+            System.out.println(e);
+        }
+        finally {
+        	entityManager.close();
+        }
     }
     
     public void deleteProduct(Product product) {

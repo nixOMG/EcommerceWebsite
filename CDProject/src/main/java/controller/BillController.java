@@ -100,7 +100,7 @@ public class BillController extends HttpServlet {
 			 List<User> users=userEM.getAllUsers();
 			 request.setAttribute("user", users);*/
              request.setAttribute("bill", bill);             
-            entityManager.close();
+             entityManager.close();
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-bill.jsp");
             dispatcher.forward(request, response);
@@ -199,12 +199,7 @@ public class BillController extends HttpServlet {
 	        
             UserEM userEM = new UserEM(entityManager);
             User user = userEM.getUserById(userId);
-            
-            /*billToUpdate.setUser(user);
-            billToUpdate.setBillDate(billDate);
-            billToUpdate.setTotalPrice(totalPrice);
-            billToUpdate.setShipFee(shipFee);
-            billToUpdate.setStatus(status);*/
+
             
             // Gọi hàm cập nhật sản phẩm trong UserEM
             billEM.updateBill(billToUpdate, user, billDate, totalPrice, shipFee, status);
