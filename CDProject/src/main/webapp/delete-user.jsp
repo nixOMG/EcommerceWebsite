@@ -51,7 +51,7 @@
     <div class="container">
         <h2 class="mb-4">Delete User</h2>
         
-        <form action="manage-customer" method="post" enctype="multipart/form-data" accept-charset="UTF-8" onsubmit="return confirmDelete()">>
+        <form action="manage-customer" method="post" enctype="multipart/form-data" accept-charset="UTF-8" onsubmit="return confirmDelete()">
         	<input type="hidden" name="action" value="delete-user"/>
         	<input type="hidden" name="userId" value="${user.userId}"/>
             <div class="row mb-3">

@@ -57,7 +57,7 @@
 	                    <c:otherwise>Trạng thái không xác định</c:otherwise>
 	                </c:choose>
            		</td>
-               <<td>
+               <td>
                     <!-- Thêm các button Action tương ứng với sản phẩm -->
                     <a style="margin-right: 10px" href="manage-bill?action=get-page-edit-bill&billId=${bill.billId}"><i class="fa-solid fa-pencil"></i></a>
                     <a href="manage-bill?action=get-page-delete-bill&billId=${bill.billId}"><i class="fa-solid fa-trash"></i></a>
