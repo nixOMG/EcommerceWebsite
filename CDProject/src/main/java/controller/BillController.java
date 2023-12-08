@@ -200,9 +200,13 @@ public class BillController extends HttpServlet {
             UserEM userEM = new UserEM(entityManager);
             User user = userEM.getUserById(userId);
 
-            
+            billToUpdate.setUser(user);
+            billToUpdate.setBillDate(billDate);
+            billToUpdate.setTotalPrice(totalPrice);
+            billToUpdate.setShipFee(shipFee);
+            billToUpdate.setStatus(status);
             // Gọi hàm cập nhật sản phẩm trong UserEM
-            billEM.updateBill(billToUpdate, user, billDate, totalPrice, shipFee, status);
+            billEM.updateBill(billToUpdate);
             
             // Chuyển hướng về trang danh sách sản phẩm sau khi cập nhật
             handleGetBillsByPage(request, response);

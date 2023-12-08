@@ -191,9 +191,10 @@ https://templatemo.com/tm-559-zay-shop
 								            </div>
 								           
 								            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-											    <form method="POST" style="display: flex; gap: 20px;" action="cart">
+											    <form method="POST" style="display: flex; gap: 20px;" action="cart" onsubmit="return checkQuantity(this);">
 											        <input type="hidden" name="action" value="edit-cart"/>
 											        <input type="hidden" name="productId" value="${entry.value.product.productId}">
+							
 											        <button class="btn btn-link px-2" type="button"
 											            onclick="this.parentNode.querySelector('input[type=number]').stepDown(); this.form.submit();">
 											            <i class="fas fa-minus"></i>
@@ -292,6 +293,16 @@ https://templatemo.com/tm-559-zay-shop
 	            }
 	        }
 	    });
+	</script>
+	<script>
+		function checkQuantity(form) {
+		    var quantity = form.querySelector('input[name=quantity]').value;
+		    if (quantity == 0) {
+		        window.location.href = 'cart?action=delete-cart&productId=' + form.querySelector('input[name=productId]').value;
+		        return false;
+		    }
+		    return true;
+		}
 	</script>
 
 	<!-- Start Script -->

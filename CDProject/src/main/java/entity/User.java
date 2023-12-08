@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "\"user\"")
 public class User implements Serializable {
 
     @Id
@@ -45,7 +47,6 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-    // Getter and setter methods...
 
     public int getUserId() {
         return userId;

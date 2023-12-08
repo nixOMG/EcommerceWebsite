@@ -12,13 +12,13 @@
         <class>entity.BillDetail</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/final?user=root?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://dpg-cloqm81oh6hc73bltk40-a.singapore-postgres.render.com/tstpostgre" />
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="9512357"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="jDVH53xfTcuODIaDfqiTV20r3WVPYUXH"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
             <property name="eclipselink.logging.level" value="FINE"/>
-            <property name="eclipselink.logging.file" value="D:/eclipselink.log"/>
+            <!-- <property name="eclipselink.logging.file" value="D:/eclipselink.log"/> -->
         </properties>
     </persistence-unit>
 </persistence>

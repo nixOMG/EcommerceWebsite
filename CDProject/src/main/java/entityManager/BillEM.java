@@ -45,20 +45,12 @@ public class BillEM {
         }
     }
     
-    public void updateBill(Bill billToUpdate, User user, Date billDate, int totalPrice, int shipFee, int status) {
+    public void updateBill(Bill billToUpdate) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            
-            // Update Bill
-            billToUpdate.setUser(user);
-            billToUpdate.setBillDate(billDate);
-            billToUpdate.setTotalPrice(totalPrice);
-            billToUpdate.setShipFee(shipFee);
-            billToUpdate.setStatus(status);
-            entityManager.refresh(billToUpdate);
             // Persist changes
-            entityManager.persist(billToUpdate);
+            entityManager.merge(billToUpdate);
 
             transaction.commit();
         } catch (Exception e) {

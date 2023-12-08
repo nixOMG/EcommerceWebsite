@@ -64,7 +64,7 @@ public class UserEM {
             // Lấy danh sách tất cả các Bill liên quan đến User
             Query billQuery = entityManager.createQuery("SELECT b FROM Bill b WHERE b.user.userId = :userId", Bill.class);
             billQuery.setParameter("userId", userId);
-            List<Bill> bills = billQuery.getResultList();
+            List<Bill> bills = (List<Bill>) billQuery.getResultList();
 
             // Xóa tất cả các BillDetail liên quan đến từng Bill
             for (Bill bill : bills) {

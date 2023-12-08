@@ -179,7 +179,7 @@ public class ProductController extends HttpServlet {
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-product.jsp");
 	            dispatcher.forward(request, response);
 	        } catch (Exception e) {
-	            e.printStackTrace(); // Xử lý hoặc ghi log lỗi tùy theo nhu cầu của bạn
+	            e.printStackTrace();
 	        } finally {
 	            if (entityManager != null && entityManager.isOpen()) {
 	                entityManager.close();

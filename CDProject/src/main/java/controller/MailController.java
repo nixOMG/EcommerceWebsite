@@ -33,7 +33,8 @@ public class MailController extends HttpServlet {
         	ApiClient defaultClient = Configuration.getDefaultApiClient();
             // Configure API key authorization: api-key
             ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-            apiKey.setApiKey("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"); //De api trong file txt vao day
+          //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
+            apiKey.setApiKey("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"); //De api trong file txt vao day
             request.setCharacterEncoding("UTF-8");
             String userName=request.getParameter("name");
             String userEmail= request.getParameter("email");

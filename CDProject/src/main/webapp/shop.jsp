@@ -57,14 +57,22 @@
 						    <c:choose>
 						        <c:when test="${not empty selectedCategory}">
 						            <li class="list-inline-item">
-						                <a class="h3 text-dark text-decoration-none mr-3" href="#">
+						                <a class="h3 text-dark text-decoration-none mr-3" href="shop">
 						                    ${selectedCategory.name}
 						                </a>
 						            </li>
 						        </c:when>
-						        <c:otherwise>
+						        <c:when test="${not empty selectedArtist}">
 						            <li class="list-inline-item">
-						                <a class="h3 text-dark text-decoration-none mr-3" href="#">
+						                <a class="h3 text-dark text-decoration-none mr-3" href="shop">
+						                    ${selectedArtist.name}
+						                </a>
+						            </li>
+						        </c:when>
+						        <c:otherwise>
+						        
+						            <li class="list-inline-item">
+						                <a class="h3 text-dark text-decoration-none mr-3" href="shop">
 						                    All
 						                </a>
 						            </li>
@@ -208,6 +216,7 @@
 								</div>
 								<!--End Slides-->
 							</div>
+						</div>
 						</div>
 						<!--End Carousel Wrapper-->
 
